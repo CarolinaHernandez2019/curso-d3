@@ -181,14 +181,42 @@ body {
   border-radius: 4px 0 0 4px;
 }
 
+.toggle-btn:not(:first-child) {
+  border-left: none;
+}
+
 .toggle-btn:last-child {
   border-radius: 0 4px 4px 0;
-  border-left: none;
 }
 
 .toggle-active {
   background: var(--color-text);
   color: #fff;
+}
+
+/* --- Leyenda de continentes --- */
+.continent-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
 }
 
 /* --- Viz container --- */
