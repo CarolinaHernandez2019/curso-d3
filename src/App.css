@@ -259,6 +259,26 @@ body {
   background: var(--color-border);
 }
 
+/* --- Home note --- */
+.home-note {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* --- Tips list --- */
+.tips-list {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.tips-list li {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
 /* --- Highlight estilo resaltador verde (igual que el portafolio de Carolina) --- */
 .highlight-link {
   text-decoration: none;

@@ -11,13 +11,18 @@ export default function Home({ lang }) {
 
       <section className="home-section">
         <p>{t("home.description", lang)}</p>
+        <p className="home-note">{t("home.note", lang)}</p>
       </section>
 
       <section className="home-section">
-        <p>
-          <strong>{t("home.tips", lang)}</strong> {t("home.tips.text", lang)}{" "}
-          <code>d3.select</code>, <code>d3.append</code> {t("home.tips.end", lang)}
-        </p>
+        <p><strong>{t("home.tips", lang)}</strong></p>
+        <ul className="tips-list">
+          <li>{t("home.tip1", lang)}</li>
+          <li>{t("home.tip2", lang)}{" "}
+            <code>d3.select</code>, <code>d3.append</code>{" "}
+            {t("home.tip2.end", lang)}
+          </li>
+        </ul>
       </section>
     </div>
   );

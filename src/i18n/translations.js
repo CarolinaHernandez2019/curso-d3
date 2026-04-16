@@ -17,17 +17,25 @@ export const translations = {
     es: "Cada módulo tiene sus lecciones y un proyecto que consolida lo aprendido.",
     en: "Each module has its lessons and a project that consolidates what was learned.",
   },
+  "home.note": {
+    es: "Nota: en cada proyecto se incluye el ejercicio tal cual se pidió y un twist, una variación propia para explorar algo nuevo.",
+    en: "Note: each project includes the exercise as requested plus a twist, a personal variation to explore something new.",
+  },
   "home.tips": {
     es: "Tips de curso:",
     en: "Course tips:",
   },
-  "home.tips.text": {
-    es: "D3 solo para la matemática (escalas, layouts, geometría), React y JSX para todo el rendering. Nada de",
-    en: "D3 only for the math (scales, layouts, geometry), React and JSX for all rendering. No",
+  "home.tip1": {
+    es: "D3 solo para la matemática (escalas, layouts, geometría), React y JSX para todo el rendering.",
+    en: "D3 only for the math (scales, layouts, geometry), React and JSX for all rendering.",
   },
-  "home.tips.end": {
-    es: "ni manipulación directa del DOM.",
-    en: "or any direct DOM manipulation.",
+  "home.tip2": {
+    es: "React y D3 manejan el DOM, si los dos lo hacen al mismo tiempo se pelean y las cosas se rompen. Cuando vemos",
+    en: "React and D3 both manage the DOM, if they do it at the same time they clash and things break. When we see",
+  },
+  "home.tip2.end": {
+    es: "en un tutorial, eso es D3 puro; acá dibujamos con React y D3 solo hace la matemática.",
+    en: "in a tutorial, that's pure D3; here we draw with React and D3 only does the math.",
   },
 
   // Proyecto 1
