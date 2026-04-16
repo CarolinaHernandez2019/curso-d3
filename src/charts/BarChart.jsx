@@ -1,8 +1,7 @@
-// Gráfico de barras horizontales — coloreado por continente.
+// Gráfico de barras horizontales — estilo minimalista, barras negras.
 // D3 solo para escalas, React para renderizar.
 
 import { scaleBand, scaleLinear, max } from "d3";
-import { continentColors } from "../data/cohortData";
 import { t } from "../i18n/translations";
 
 const MARGIN = { top: 30, right: 60, bottom: 40, left: 140 };
@@ -61,7 +60,7 @@ export default function BarChart({ data, lang = "es", width = 720, height = 580 
           const barWidth = xScale(d.students);
           const barHeight = yScale.bandwidth();
           const isHighlight = d.highlight === true;
-          const fillColor = isHighlight ? "#FCD116" : (continentColors[d.continent] || "#1a1a1a");
+          const fillColor = isHighlight ? "#FCD116" : "#1a1a1a";
 
           return (
             <g key={d[lang]}>
