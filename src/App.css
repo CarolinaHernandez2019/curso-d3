@@ -1,0 +1,261 @@
+/* ==========================================================
+   D3 Learning Hub — estilo minimalista
+   Calca la filosofía visual de Page/ (portafolio de Carolina):
+   Montserrat, blanco/negro, nav horizontal con underline animado.
+   ========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #666666;
+  --color-border: #e0e0e0;
+  --color-surface: #f5f5f5;
+  --color-accent: #333333;
+  --color-highlight: #FCD116;
+  --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --max-width: 900px;
+  --transition: 0.3s ease;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Navbar: estilo identico al portafolio --- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+}
+
+/* --- Botón de idioma (ES/EN) estilo portafolio --- */
+.lang-toggle {
+  background: none;
+  border: 1.5px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 14px;
+  letter-spacing: 0.05em;
+  transition: color var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.lang-toggle:hover {
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color var(--transition);
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--color-text);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-text);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* --- Main content --- */
+.app {
+  min-height: 100vh;
+}
+
+.main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* --- Lesson content --- */
+.lesson-content h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.lesson-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.lesson-subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 28px;
+}
+
+.lesson-content p {
+  line-height: 1.7;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.lesson-content code {
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+/* --- Toggle Lollipop / Treemap --- */
+.viz-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 24px;
+}
+
+.toggle-btn {
+  padding: 8px 24px;
+  border: 1.5px solid var(--color-text);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  transition: all 0.15s;
+}
+
+.toggle-btn:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.toggle-btn:last-child {
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.toggle-active {
+  background: var(--color-text);
+  color: #fff;
+}
+
+/* --- Viz container --- */
+.viz-container {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+/* --- Home sections --- */
+.home-section {
+  margin-bottom: 24px;
+}
+
+.status-list {
+  list-style: none;
+  padding: 0;
+}
+
+.status-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: 14px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot.done {
+  background: var(--color-highlight);
+}
+
+.dot.pending {
+  background: var(--color-border);
+}
+
+/* --- Highlight estilo resaltador verde (igual que el portafolio de Carolina) --- */
+.highlight-link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+  background: linear-gradient(to top, #b8e6b0 0%, #b8e6b0 40%, transparent 40%);
+  padding: 0 0.15em;
+  transition: background 0.3s ease;
+}
+
+.highlight-link:hover {
+  background: linear-gradient(to top, #b8e6b0 0%, #b8e6b0 60%, transparent 60%);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+  }
+
+  .main {
+    padding: 32px 16px;
+  }
+}
