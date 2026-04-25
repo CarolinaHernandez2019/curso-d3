@@ -9,9 +9,9 @@ export const translations = {
     en: "D3 ❤ React - Course Projects",
   },
   "home.subtitle.before": { es: "", en: "" },
-  "home.subtitle.after": {
-    es: " · primer cohorte · curso D3 y React con Yan Holtz",
-    en: " · first cohort · D3 and React course by Yan Holtz",
+  "home.subtitle.middle": {
+    es: " · primer cohorte · curso ",
+    en: " · first cohort · course ",
   },
   "home.description": {
     es: "Cada módulo tiene sus lecciones y un proyecto que consolida lo aprendido.",
@@ -26,14 +26,22 @@ export const translations = {
     en: "Course tips:",
   },
   "home.tip1": {
+    es: "Todo empieza con HTML, CSS y JavaScript. Tener una base sólida en estos tres lenguajes es esencial antes de pasar a React.",
+    en: "Everything starts with HTML, CSS, and JavaScript. Establishing a solid understanding of these three languages is essential before moving on to React.",
+  },
+  "home.tip2": {
+    es: "GitHub es perfecto para mostrar los proyectos: cada entrega queda publicada, compartible y lista para recibir feedback.",
+    en: "GitHub is perfect for displaying the projects: each submission is published, shareable, and ready for feedback.",
+  },
+  "home.tip3": {
     es: "D3 solo para la matemática (escalas, layouts, geometría), React y JSX para todo el rendering.",
     en: "D3 only for the math (scales, layouts, geometry), React and JSX for all rendering.",
   },
-  "home.tip2": {
+  "home.tip4": {
     es: "React y D3 manejan el DOM, si los dos lo hacen al mismo tiempo se pelean y las cosas se rompen. Cuando vemos",
     en: "React and D3 both manage the DOM, if they do it at the same time they clash and things break. When we see",
   },
-  "home.tip2.end": {
+  "home.tip4.end": {
     es: "en un tutorial, eso es D3 puro; acá dibujamos con React y D3 solo hace la matemática.",
     en: "in a tutorial, that's pure D3; here we draw with React and D3 only does the math.",
   },
