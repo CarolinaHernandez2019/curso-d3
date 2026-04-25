@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Home from "./lessons/Home";
 import IntroProject from "./lessons/IntroProject";
 import LessonStub from "./lessons/LessonStub";
+import TreemapProject from "./lessons/TreemapProject";
 import "./App.css";
 
 export default function App() {
@@ -18,6 +19,8 @@ export default function App() {
     content = <Home lang={lang} />;
   } else if (activeView === "project-1") {
     content = <IntroProject lang={lang} />;
+  } else if (activeView === "project-2") {
+    content = <TreemapProject lang={lang} />;
   } else {
     content = <LessonStub />;
   }

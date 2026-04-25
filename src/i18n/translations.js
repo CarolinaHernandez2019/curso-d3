@@ -56,6 +56,25 @@ export const translations = {
     en: " countries (let's not forget Colombia)",
   },
 
+  // Proyecto 2
+  "p2.title": {
+    es: "Los mismos estudiantes, ahora como un treemap por continente",
+    en: "The same students, now as a treemap by continent",
+  },
+  "p2.subtitle": {
+    es: "D3 calcula la jerarquía y el layout; React dibuja cada rectángulo. Europa aparece como el bloque más diverso y Colombia queda resaltada en amarillo.",
+    en: "D3 calculates the hierarchy and layout; React draws every rectangle. Europe appears as the most diverse block and Colombia is highlighted in yellow.",
+  },
+  "p2.legend": {
+    es: "Leyenda por continente",
+    en: "Legend by continent",
+  },
+  "continent.North America": { es: "Norteamérica", en: "North America" },
+  "continent.Europe": { es: "Europa", en: "Europe" },
+  "continent.Asia": { es: "Asia", en: "Asia" },
+  "continent.Oceania": { es: "Oceanía", en: "Oceania" },
+  "continent.South America": { es: "Suramérica", en: "South America" },
+
   // Lollipop
   "lollipop.axis": {
     es: "NÚMERO DE ESTUDIANTES",

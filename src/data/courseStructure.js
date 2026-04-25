@@ -15,7 +15,12 @@ export const courseModules = [
     ],
     project: { id: "intro-project", title: "Project: Your First D3 Chart", status: "in-progress" },
   },
-  { id: 2, title: "Module 2", lessons: [], project: null, placeholder: true },
+  {
+    id: 2,
+    title: "Layouts",
+    lessons: [],
+    project: { id: "treemap-project", title: "Project: Treemap by Continent", status: "in-progress" },
+  },
   { id: 3, title: "Module 3", lessons: [], project: null, placeholder: true },
   { id: 4, title: "Module 4", lessons: [], project: null, placeholder: true },
   { id: 5, title: "Module 5", lessons: [], project: null, placeholder: true },
