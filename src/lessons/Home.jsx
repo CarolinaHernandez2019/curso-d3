@@ -7,7 +7,7 @@ export default function Home({ lang }) {
       <p className="lesson-subtitle">
         <a href="https://carolinahernandez2019.github.io/" target="_blank" rel="noopener" className="highlight-link">Carolina Hernández</a>
         {t("home.subtitle.middle", lang)}
-        <a href="https://www.react-graph-gallery.com/react-d3-dataviz-course" target="_blank" rel="noopener" className="highlight-link">D3 y React con Yan Holtz</a>
+        <a href="https://www.react-graph-gallery.com/react-d3-dataviz-course" target="_blank" rel="noopener" className="highlight-link">{t("home.course.link", lang)}</a>
       </p>
 
       <section className="home-section">

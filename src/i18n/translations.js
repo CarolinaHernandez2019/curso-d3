@@ -13,6 +13,10 @@ export const translations = {
     es: " · primer cohorte · curso ",
     en: " · first cohort · course ",
   },
+  "home.course.link": {
+    es: "D3 y React con Yan Holtz",
+    en: "D3 and React by Yan Holtz",
+  },
   "home.description": {
     es: "Cada módulo tiene sus lecciones y un proyecto que consolida lo aprendido.",
     en: "Each module has its lessons and a project that consolidates what was learned.",
