@@ -226,6 +226,19 @@ body {
   padding: 24px 0;
 }
 
+.economist-viz {
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.economist-chart {
+  width: min(100%, 720px);
+  min-width: 620px;
+  height: auto;
+  display: block;
+  font-family: var(--font-body);
+}
+
 /* --- Home sections --- */
 .home-section {
   margin-bottom: 24px;

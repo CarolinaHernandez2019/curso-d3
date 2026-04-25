@@ -58,22 +58,13 @@ export const translations = {
 
   // Proyecto 2
   "p2.title": {
-    es: "Los mismos estudiantes, ahora como un treemap por continente",
-    en: "The same students, now as a treemap by continent",
+    es: "Recreando un gráfico estilo The Economist",
+    en: "Recreating a chart in The Economist style",
   },
   "p2.subtitle": {
-    es: "D3 calcula la jerarquía y el layout; React dibuja cada rectángulo. Europa aparece como el bloque más diverso y Colombia queda resaltada en amarillo.",
-    en: "D3 calculates the hierarchy and layout; React draws every rectangle. Europe appears as the most diverse block and Colombia is highlighted in yellow.",
+    es: "Proyecto del módulo de escalas: barras horizontales, grilla superior, etiquetas inline y pie de fuente.",
+    en: "Scales module project: horizontal bars, top grid, inline labels, and source footer.",
   },
-  "p2.legend": {
-    es: "Leyenda por continente",
-    en: "Legend by continent",
-  },
-  "continent.North America": { es: "Norteamérica", en: "North America" },
-  "continent.Europe": { es: "Europa", en: "Europe" },
-  "continent.Asia": { es: "Asia", en: "Asia" },
-  "continent.Oceania": { es: "Oceanía", en: "Oceania" },
-  "continent.South America": { es: "Suramérica", en: "South America" },
 
   // Lollipop
   "lollipop.axis": {

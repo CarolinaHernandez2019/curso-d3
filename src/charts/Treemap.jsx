@@ -11,19 +11,7 @@
 import { hierarchy, treemap as d3treemap } from "d3";
 import { continentColors } from "../data/cohortData";
 
-const continentLabels = {
-  "North America": { es: "Norteamérica", en: "North America" },
-  Europe: { es: "Europa", en: "Europe" },
-  Asia: { es: "Asia", en: "Asia" },
-  Oceania: { es: "Oceanía", en: "Oceania" },
-  "South America": { es: "Suramérica", en: "South America" },
-};
-
-function getContinentLabel(continent, lang) {
-  return continentLabels[continent]?.[lang] || continent;
-}
-
-export default function Treemap({ data, lang = "es", width = 720, height = 560 }) {
+export default function Treemap({ data, width = 720, height = 560 }) {
   // Agrupamos los países por continente. El resultado es un objeto del tipo:
   // { "Europe": [France, Germany, ...], "Asia": [...], ... }
   const byContinent = data.reduce((acc, d) => {
@@ -37,12 +25,12 @@ export default function Treemap({ data, lang = "es", width = 720, height = 560 }
   const root = hierarchy({
     name: "root",
     children: Object.entries(byContinent).map(([continent, countries]) => ({
-        name: continent,
-        children: countries.map((c) => ({
-          name: c[lang],
-          value: c.students,
-          highlight: c.highlight,
-        })),
+      name: continent,
+      children: countries.map((c) => ({
+        name: c.country,
+        value: c.students,
+        highlight: c.highlight,
+      })),
     })),
   }).sum((d) => d.value || 0);
 
@@ -84,7 +72,7 @@ export default function Treemap({ data, lang = "es", width = 720, height = 560 }
               fill="#666"
               fontFamily="Montserrat, sans-serif"
             >
-              {getContinentLabel(node.data.name, lang).toUpperCase()}
+              {node.data.name.toUpperCase()}
             </text>
           </g>
         );

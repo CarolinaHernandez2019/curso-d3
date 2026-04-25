@@ -17,9 +17,9 @@ export const courseModules = [
   },
   {
     id: 2,
-    title: "Layouts",
+    title: "Scales",
     lessons: [],
-    project: { id: "treemap-project", title: "Project: Treemap by Continent", status: "in-progress" },
+    project: { id: "economist-project", title: "Project: Economist Bar Chart", status: "in-progress" },
   },
   { id: 3, title: "Module 3", lessons: [], project: null, placeholder: true },
   { id: 4, title: "Module 4", lessons: [], project: null, placeholder: true },
