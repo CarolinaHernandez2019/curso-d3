@@ -1,13 +1,13 @@
 import { max, scaleBand, scaleLinear } from "d3";
 
-const MARGIN = { top: 150, right: 44, bottom: 52, left: 0 };
+const MARGIN = { top: 156, right: 42, bottom: 54, left: 0 };
 const BLUE = "#3f75a5";
 const RED = "#e33027";
 const INK = "#071a38";
 const MUTED = "#6f747c";
 const GRID = "#e3e3e3";
 
-export default function EconomistBarChart({ data, width = 720, height = 500 }) {
+export default function EconomistBarChart({ data, width = 820, height = 540 }) {
   const sortedData = [...data].sort((a, b) => b.count - a.count);
   const innerWidth = width - MARGIN.left - MARGIN.right;
   const innerHeight = height - MARGIN.top - MARGIN.bottom;
@@ -37,13 +37,13 @@ export default function EconomistBarChart({ data, width = 720, height = 500 }) {
         Number of laboratory-acquired infections between 1970 and 2021.
       </desc>
 
-      <line x1={0} x2={width - 40} y1={24} y2={24} stroke={RED} strokeWidth={2} />
-      <rect x={0} y={24} width={38} height={9} fill={RED} />
+      <line x1={0} x2={width - 56} y1={24} y2={24} stroke={RED} strokeWidth={2} />
+      <rect x={0} y={24} width={44} height={10} fill={RED} />
 
-      <text x={0} y={56} fill={INK} fontSize={24} fontWeight={800}>
+      <text x={0} y={64} fill={INK} fontSize={26} fontWeight={800}>
         Escape artists
       </text>
-      <text x={0} y={92} fill={INK} fontSize={19} fontWeight={400}>
+      <text x={0} y={104} fill={INK} fontSize={21} fontWeight={400}>
         Number of laboratory-acquired infections, 1970-2021
       </text>
 
@@ -54,7 +54,7 @@ export default function EconomistBarChart({ data, width = 720, height = 500 }) {
               y={-10}
               textAnchor="middle"
               fill={MUTED}
-              fontSize={13}
+              fontSize={16}
               fontWeight={400}
             >
               {tick}
@@ -79,7 +79,7 @@ export default function EconomistBarChart({ data, width = 720, height = 500 }) {
                 y={y + barHeight / 2}
                 dominantBaseline="middle"
                 fill={labelInside ? "#ffffff" : "#2c6090"}
-                fontSize={14}
+                fontSize={17}
                 fontWeight={labelInside ? 700 : 500}
               >
                 {d.name}
@@ -89,10 +89,10 @@ export default function EconomistBarChart({ data, width = 720, height = 500 }) {
         })}
       </g>
 
-      <text x={0} y={height - 28} fill={MUTED} fontSize={12}>
+      <text x={0} y={height - 28} fill={MUTED} fontSize={14}>
         Sources: Laboratory-Acquired Infection Database; American Biological Safety Association
       </text>
-      <text x={0} y={height - 10} fill={MUTED} fontSize={12}>
+      <text x={0} y={height - 8} fill={MUTED} fontSize={14}>
         The Economist
       </text>
     </svg>

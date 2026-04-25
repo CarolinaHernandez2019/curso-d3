@@ -11,6 +11,16 @@ export default function EconomistProject({ lang }) {
       <div className="viz-container economist-viz">
         <EconomistBarChart data={economistData} />
       </div>
+
+      <section className="economist-notes">
+        <h3>{t("p2.tips.title", lang)}</h3>
+        <ul className="tips-list">
+          <li>{t("p2.tip1", lang)}</li>
+          <li>{t("p2.tip2", lang)}</li>
+          <li>{t("p2.tip3", lang)}</li>
+          <li>{t("p2.tip4", lang)}</li>
+        </ul>
+      </section>
     </div>
   );
 }

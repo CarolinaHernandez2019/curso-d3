@@ -232,11 +232,18 @@ body {
 }
 
 .economist-chart {
-  width: min(100%, 720px);
-  min-width: 620px;
+  width: min(100%, 820px);
+  min-width: 720px;
   height: auto;
   display: block;
-  font-family: var(--font-body);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.economist-notes {
+  max-width: 720px;
+  margin-top: 8px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 16px;
 }
 
 /* --- Home sections --- */

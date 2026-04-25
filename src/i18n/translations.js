@@ -65,6 +65,26 @@ export const translations = {
     es: "Proyecto del módulo de escalas: barras horizontales, grilla superior, etiquetas inline y pie de fuente.",
     en: "Scales module project: horizontal bars, top grid, inline labels, and source footer.",
   },
+  "p2.tips.title": {
+    es: "Tips estilo The Economist",
+    en: "The Economist style tips",
+  },
+  "p2.tip1": {
+    es: "Una línea roja superior funciona como firma visual y separa la gráfica del resto de la página.",
+    en: "A top red rule works as a visual signature and separates the chart from the rest of the page.",
+  },
+  "p2.tip2": {
+    es: "El título es corto, fuerte y en negrita; el subtítulo explica exactamente qué se está midiendo.",
+    en: "The title is short, strong, and bold; the subtitle states exactly what is being measured.",
+  },
+  "p2.tip3": {
+    es: "Los valores del eje van arriba y la grilla vertical guía la lectura sin competir con las barras.",
+    en: "Axis values sit at the top and vertical grid lines guide reading without competing with the bars.",
+  },
+  "p2.tip4": {
+    es: "Las etiquetas van dentro de las barras cuando hay espacio y afuera cuando la barra es pequeña.",
+    en: "Labels go inside bars when there is room and outside when the bar is small.",
+  },
 
   // Lollipop
   "lollipop.axis": {
