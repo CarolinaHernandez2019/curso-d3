@@ -1,29 +1,28 @@
-import { max, scaleBand, scaleLinear } from "d3";
+import { scaleBand, scaleLinear } from "d3";
 
 const MARGIN = { top: 156, right: 42, bottom: 54, left: 0 };
-const BLUE = "#3f75a5";
+const BAR_PADDING = 0.4;
+const BLUE = "#076fa2";
 const RED = "#e33027";
 const INK = "#071a38";
 const MUTED = "#6f747c";
-const GRID = "#e3e3e3";
+const GRID = "#808080";
 
 export default function EconomistBarChart({ data, width = 820, height = 540 }) {
   const sortedData = [...data].sort((a, b) => b.count - a.count);
   const innerWidth = width - MARGIN.left - MARGIN.right;
   const innerHeight = height - MARGIN.top - MARGIN.bottom;
 
-  const xScale = scaleLinear()
-    .domain([0, max(sortedData, (d) => d.count) || 0])
-    .range([0, innerWidth])
-    .nice();
+  const xScale = scaleLinear().domain([0, 55]).range([0, innerWidth]);
 
   const yScale = scaleBand()
     .domain(sortedData.map((d) => d.name))
     .range([0, innerHeight])
-    .padding(0.35);
+    .paddingInner(BAR_PADDING)
+    .paddingOuter(0.1);
 
-  const ticks = xScale.ticks(11);
-  const labelBreakpoint = 9;
+  const ticks = xScale.ticks(10);
+  const labelBreakpoint = 7;
 
   return (
     <svg
@@ -48,22 +47,25 @@ export default function EconomistBarChart({ data, width = 820, height = 540 }) {
       </text>
 
       <g transform={`translate(${MARGIN.left}, ${MARGIN.top})`}>
-        {ticks.map((tick) => (
+        {ticks.slice(1).map((tick) => (
           <g key={tick} transform={`translate(${xScale(tick)}, 0)`}>
             <text
               y={-10}
               textAnchor="middle"
               fill={MUTED}
-              fontSize={16}
+              fontSize={12}
               fontWeight={400}
             >
               {tick}
             </text>
-            <line y1={0} y2={innerHeight + 4} stroke={GRID} strokeWidth={1} />
+            <line y1={0} y2={innerHeight + 4} stroke={GRID} strokeWidth={1} opacity={0.2} />
           </g>
         ))}
 
         <line y1={-3} y2={innerHeight + 4} stroke="#222222" strokeWidth={1.5} />
+        <text y={-10} textAnchor="middle" fill={MUTED} fontSize={12} fontWeight={400}>
+          0
+        </text>
 
         {sortedData.map((d) => {
           const y = yScale(d.name);
@@ -78,9 +80,10 @@ export default function EconomistBarChart({ data, width = 820, height = 540 }) {
                 x={labelInside ? 8 : barWidth + 8}
                 y={y + barHeight / 2}
                 dominantBaseline="middle"
-                fill={labelInside ? "#ffffff" : "#2c6090"}
-                fontSize={17}
-                fontWeight={labelInside ? 700 : 500}
+                fill={labelInside ? "#ffffff" : BLUE}
+                fillOpacity={labelInside ? 0.9 : 1}
+                fontSize={14}
+                fontWeight={500}
               >
                 {d.name}
               </text>

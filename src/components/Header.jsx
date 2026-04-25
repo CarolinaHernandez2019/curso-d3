@@ -9,9 +9,9 @@ export default function Header({ activeView, onSelect, lang, onToggleLang }) {
         <ul className="nav-links">
           <li>
             <a
-              href="#"
+              href="#home"
               className={activeView === "home" ? "active" : ""}
-              onClick={(e) => { e.preventDefault(); onSelect("home"); }}
+              onClick={() => onSelect("home")}
             >
               {t("nav.home", lang)}
             </a>
@@ -19,9 +19,9 @@ export default function Header({ activeView, onSelect, lang, onToggleLang }) {
           {PROJECTS.map((n) => (
             <li key={n}>
               <a
-                href="#"
+                href={`#project-${n}`}
                 className={activeView === `project-${n}` ? "active" : ""}
-                onClick={(e) => { e.preventDefault(); onSelect(`project-${n}`); }}
+                onClick={() => onSelect(`project-${n}`)}
               >
                 {t("nav.project", lang)} {n}
               </a>

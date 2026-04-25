@@ -70,20 +70,28 @@ export const translations = {
     en: "The Economist style tips",
   },
   "p2.tip1": {
-    es: "Una línea roja superior funciona como firma visual y separa la gráfica del resto de la página.",
-    en: "A top red rule works as a visual signature and separates the chart from the rest of the page.",
+    es: "X = cantidad de casos. Se usa scaleLinear() para convertir números en ancho de barra y posición de la grilla.",
+    en: "X = number of cases. Use scaleLinear() to turn numbers into bar width and grid positions.",
   },
   "p2.tip2": {
-    es: "El título es corto, fuerte y en negrita; el subtítulo explica exactamente qué se está midiendo.",
-    en: "The title is short, strong, and bold; the subtitle states exactly what is being measured.",
+    es: "Y = nombre de la enfermedad. Se usa scaleBand() para repartir categorías con espacios consistentes.",
+    en: "Y = disease name. Use scaleBand() to distribute categories with consistent spacing.",
   },
   "p2.tip3": {
-    es: "Los valores del eje van arriba y la grilla vertical guía la lectura sin competir con las barras.",
-    en: "Axis values sit at the top and vertical grid lines guide reading without competing with the bars.",
+    es: "Firma visual: línea roja superior, azul sobrio, fondo blanco, títulos negros y fuente de datos al pie.",
+    en: "Visual signature: top red rule, restrained blue, white background, black titles, and source footer.",
   },
   "p2.tip4": {
-    es: "Las etiquetas van dentro de las barras cuando hay espacio y afuera cuando la barra es pequeña.",
-    en: "Labels go inside bars when there is room and outside when the bar is small.",
+    es: "Eje arriba: los ticks y la grilla vertical se leen desde la parte superior, no desde abajo.",
+    en: "Top axis: ticks and vertical grid lines are read from the top, not from the bottom.",
+  },
+  "p2.tip5": {
+    es: "Etiquetas inline: van dentro de las barras largas y afuera en las barras pequeñas para no perder legibilidad.",
+    en: "Inline labels: place them inside long bars and outside short bars to preserve readability.",
+  },
+  "p2.tip6": {
+    es: "Con esta herramienta, D3 calcula escalas y posiciones; React dibuja rectángulos, textos y líneas en JSX.",
+    en: "With this tool, D3 calculates scales and positions; React draws rectangles, text, and lines in JSX.",
   },
 
   // Lollipop

@@ -19,6 +19,8 @@ export default function EconomistProject({ lang }) {
           <li>{t("p2.tip2", lang)}</li>
           <li>{t("p2.tip3", lang)}</li>
           <li>{t("p2.tip4", lang)}</li>
+          <li>{t("p2.tip5", lang)}</li>
+          <li>{t("p2.tip6", lang)}</li>
         </ul>
       </section>
     </div>
