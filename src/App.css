@@ -299,6 +299,55 @@ body {
   margin-bottom: 8px;
 }
 
+.folder-section {
+  padding-top: 4px;
+}
+
+.folder-tree {
+  margin: 10px 0 22px;
+  border-left: 2px solid var(--color-border);
+  padding: 2px 0 2px 16px;
+  color: var(--color-text-secondary);
+}
+
+.folder-tree p {
+  display: grid;
+  grid-template-columns: 118px 1fr;
+  align-items: baseline;
+  column-gap: 18px;
+  margin-bottom: 6px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.folder-tree code {
+  background: var(--color-surface);
+  padding: 2px 6px;
+  color: var(--color-text);
+  font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+}
+
+.folder-tree span::before {
+  content: "";
+}
+
+.yan-tips-list {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.yan-tips-list li {
+  padding-left: 0;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.yan-tips-list li::before {
+  content: none;
+}
+
 /* --- Highlight estilo resaltador verde (igual que el portafolio de Carolina) --- */
 .highlight-link {
   text-decoration: none;
@@ -325,5 +374,20 @@ body {
 
   .main {
     padding: 32px 16px;
+  }
+
+  .folder-tree {
+    padding-left: 14px;
+  }
+
+  .folder-tree p {
+    display: block;
+    font-size: 13px;
+  }
+
+  .folder-tree span {
+    display: block;
+    padding-left: 0;
+    margin-top: 2px;
   }
 }

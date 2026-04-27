@@ -20,11 +20,26 @@ export default function Home({ lang }) {
         <ul className="tips-list">
           <li>{t("home.tip1", lang)}</li>
           <li>{t("home.tip2", lang)}</li>
-          <li>{t("home.tip3", lang)}</li>
-          <li>{t("home.tip4", lang)}{" "}
-            <code>d3.select</code>, <code>d3.append</code>{" "}
-            {t("home.tip4.end", lang)}
-          </li>
+          <li>{t("home.tip4", lang)}</li>
+        </ul>
+      </section>
+
+      <section className="home-section folder-section">
+        <p><strong>{t("home.structure.subtitle", lang)}</strong></p>
+
+        <div className="folder-tree" aria-label={t("home.structure.subtitle", lang)}>
+          <p><code>src/</code><span>{t("home.structure.src", lang)}</span></p>
+          <p><code>viz/</code><span>{t("home.structure.viz", lang)}</span></p>
+          <p><code>components/</code><span>{t("home.structure.components", lang)}</span></p>
+          <p><code>pages/</code><span>{t("home.structure.pages", lang)}</span></p>
+          <p><code>ui/</code><span>{t("home.structure.ui", lang)}</span></p>
+        </div>
+
+        <ul className="yan-tips-list">
+          <li>{t("home.yanTip1.body", lang)}</li>
+          <li>{t("home.yanTip2.body", lang)}</li>
+          <li>{t("home.yanTip3.body", lang)}</li>
+          <li>{t("home.yanTip4.body", lang)}</li>
         </ul>
       </section>
     </div>

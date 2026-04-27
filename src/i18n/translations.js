@@ -30,24 +30,80 @@ export const translations = {
     en: "Course tips:",
   },
   "home.tip1": {
-    es: "Todo empieza con HTML, CSS y JavaScript. Tener una base sólida en estos tres lenguajes es esencial antes de pasar a React.",
-    en: "Everything starts with HTML, CSS, and JavaScript. Establishing a solid understanding of these three languages is essential before moving on to React.",
+    es: "Se debe tener una base en tres lenguajes antes de pasar a React: HTML, CSS y JavaScript.",
+    en: "You should have a foundation in three languages before moving on to React: HTML, CSS, and JavaScript.",
   },
   "home.tip2": {
-    es: "GitHub es perfecto para mostrar los proyectos: cada entrega queda publicada, compartible y lista para recibir feedback.",
-    en: "GitHub is perfect for displaying the projects: each submission is published, shareable, and ready for feedback.",
-  },
-  "home.tip3": {
-    es: "D3 solo para la matemática (escalas, layouts, geometría), React y JSX para todo el rendering.",
-    en: "D3 only for the math (scales, layouts, geometry), React and JSX for all rendering.",
+    es: "GitHub Pages es perfecto para compartir proyectos: cada uno queda publicado, compartible y listo para recibir feedback. Es un sitio estático, es decir, el navegador hace todo el trabajo y no pagas nada sin importar cuántas personas lo visiten. Otras plataformas como Vercel tienen más sentido si necesitas un backend detrás, autenticación, APIs privadas o algo por el estilo. Para un portafolio, es demasiado.",
+    en: "GitHub Pages is perfect for sharing projects: each one gets published, shareable, and ready for feedback. It is a static site, meaning the browser does all the work and you pay nothing no matter how many people visit. Other platforms like Vercel make more sense if you need a backend running behind it, authentication, private APIs, that kind of thing. Overkill for a portfolio.",
   },
   "home.tip4": {
-    es: "React y D3 manejan el DOM, si los dos lo hacen al mismo tiempo se pelean y las cosas se rompen. Cuando vemos",
-    en: "React and D3 both manage the DOM, if they do it at the same time they clash and things break. When we see",
+    es: "El conflicto histórico entre D3 viejo y React era que los dos querían controlar el DOM. La solución: D3 solo hace matemática, React hace todo el rendering.",
+    en: "The historical conflict between old D3 and React was that both wanted to control the DOM. The solution: D3 only does the math, React handles all the rendering.",
   },
-  "home.tip4.end": {
-    es: "en un tutorial, eso es D3 puro; acá dibujamos con React y D3 solo hace la matemática.",
-    en: "in a tutorial, that's pure D3; here we draw with React and D3 only does the math.",
+  "home.structure.title": {
+    es: "Estructura de carpetas del proyecto",
+    en: "Project folder structure",
+  },
+  "home.structure.subtitle": {
+    es: "Cómo organizar src/ a medida que crece el proyecto",
+    en: "How to organize src/ as the project grows",
+  },
+  "home.structure.src": {
+    es: "código fuente",
+    en: "source code",
+  },
+  "home.structure.viz": {
+    es: "gráficos D3+React (barplot, mapa, líneas)",
+    en: "D3+React charts (barplot, map, lines)",
+  },
+  "home.structure.components": {
+    es: "elementos reutilizables (botones, filtros, headers)",
+    en: "reusable elements (buttons, filters, headers)",
+  },
+  "home.structure.pages": {
+    es: "cada artículo o pieza narrativa",
+    en: "each article or narrative piece",
+  },
+  "home.structure.ui": {
+    es: "componentes ShadcnUI si los usas",
+    en: "ShadcnUI components if you use them",
+  },
+  "home.yanTips.title": {
+    es: "Tips específicos de Yan:",
+    en: "Yan's specific tips:",
+  },
+  "home.yanTip1.title": {
+    es: "viz/ separado de components/",
+    en: "Keep viz/ separate from components/",
+  },
+  "home.yanTip1.body": {
+    es: "Los gráficos van en su propia carpeta. No mezclar visualizaciones con componentes de UI.",
+    en: "Charts go in their own folder. Do not mix visualizations with UI components.",
+  },
+  "home.yanTip2.title": {
+    es: "Componente de página vs componente global",
+    en: "Page component vs global component",
+  },
+  "home.yanTip2.body": {
+    es: "Si un componente se usa en una sola página, guardarlo al nivel de esa página, no en components/.",
+    en: "If a component is used on only one page, keep it at that page level, not in components/.",
+  },
+  "home.yanTip3.title": {
+    es: "Nunca duplicar componentes similares",
+    en: "Never duplicate similar components",
+  },
+  "home.yanTip3.body": {
+    es: "No hacer BarplotJuventud.jsx y BarplotEducacion.jsx por separado. Hacer un Barplot.jsx genérico que recibe datos como prop. Usar props para customizar.",
+    en: "Do not create BarplotYouth.jsx and BarplotEducation.jsx separately. Make a generic Barplot.jsx that receives data as a prop. Use props to customize.",
+  },
+  "home.yanTip4.title": {
+    es: "Reutilizar siempre que sea posible",
+    en: "Reuse whenever possible",
+  },
+  "home.yanTip4.body": {
+    es: "Antes de crear algo nuevo, preguntarse si ya existe un componente que puede adaptarse.",
+    en: "Before creating something new, ask whether an existing component can be adapted.",
   },
 
   // Proyecto 1
