@@ -19,14 +19,16 @@ export default function AxisBottom({
           </text>
         </g>
       ))}
-      <text
-        className="axis-label"
-        x={(scale.range()[0] + scale.range()[1]) / 2}
-        y={labelOffset}
-        textAnchor="middle"
-      >
-        {label}
-      </text>
+      {label ? (
+        <text
+          className="axis-label"
+          x={(scale.range()[0] + scale.range()[1]) / 2}
+          y={labelOffset}
+          textAnchor="middle"
+        >
+          {label}
+        </text>
+      ) : null}
     </g>
   );
 }

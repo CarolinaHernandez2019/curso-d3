@@ -14,20 +14,22 @@ export default function AxisLeft({
       <line y1={scale.range()[0]} y2={scale.range()[1]} stroke="#2a2a2a" />
       {ticks.map((tick) => (
         <g key={tick} transform={`translate(0, ${scale(tick)})`}>
-          <line x2={width} stroke="#ededed" />
+          <line x2={width} stroke="transparent" />
           <line x2={-6} stroke="#2a2a2a" />
           <text x={-12} dy="0.32em" textAnchor="end">
             {tickFormat(tick)}
           </text>
         </g>
       ))}
-      <text
-        className="axis-label"
-        transform={`translate(${-labelOffset}, ${(scale.range()[0] + scale.range()[1]) / 2}) rotate(-90)`}
-        textAnchor="middle"
-      >
-        {label}
-      </text>
+      {label ? (
+        <text
+          className="axis-label"
+          transform={`translate(${-labelOffset}, ${(scale.range()[0] + scale.range()[1]) / 2}) rotate(-90)`}
+          textAnchor="middle"
+        >
+          {label}
+        </text>
+      ) : null}
     </g>
   );
 }

@@ -1,10 +1,8 @@
-import { extent, format, max, median, scaleLinear, scaleOrdinal, scaleSqrt, sum } from "d3";
+import { extent, format, max, median, scaleLinear, scaleOrdinal, scaleSqrt } from "d3";
 import AxisBottom from "./AxisBottom";
 import AxisLeft from "./AxisLeft";
-import BubbleLegend from "./BubbleLegend";
-import ColorLegend from "./ColorLegend";
 
-const margin = { top: 80, right: 50, bottom: 60, left: 60 };
+const margin = { top: 42, right: 50, bottom: 118, left: 104 };
 const labelCountries = new Set([
   "Colombia",
   "Chile",
@@ -33,10 +31,9 @@ const labelOffsets = {
   Colombia: { dx: 10, dy: 12, anchor: "start" },
 };
 
-const continentColors = ["#8fb7c9", "#d8a365", "#96b68b", "#c9857f", "#b7a7cf"];
+const continentColors = ["#6fa4bf", "#d49a44", "#7fa36a", "#bf746e", "#9f8ac4"];
 const commaFormat = format(",");
 const oneDecimal = format(".1f");
-const percentFormat = format(".0%");
 
 export default function BubblePlot({ data, width = 800, height = 600 }) {
   const boundsWidth = width - margin.left - margin.right;
@@ -65,66 +62,31 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
   const medianY = yScale(medianLife);
   const xRange = xScale.range();
   const yRange = yScale.range();
-  const totalPopulation = sum(data, (d) => d.pop);
-  const quadrantStats = data.reduce(
-    (stats, d) => {
-      if (d.gdpPercap >= medianGdp && d.lifeExp >= medianLife) {
-        stats.topRight.countries += 1;
-        stats.topRight.population += d.pop;
-      }
-
-      if (d.gdpPercap < medianGdp && d.lifeExp < medianLife) {
-        stats.bottomLeft.countries += 1;
-        stats.bottomLeft.population += d.pop;
-      }
-
-      if (d.gdpPercap < medianGdp && d.lifeExp >= medianLife) {
-        stats.topLeft.countries += 1;
-        stats.topLeft.population += d.pop;
-      }
-
-      if (d.gdpPercap >= medianGdp && d.lifeExp < medianLife) {
-        stats.bottomRight.countries += 1;
-        stats.bottomRight.population += d.pop;
-      }
-
-      return stats;
-    },
-    {
-      topRight: { countries: 0, population: 0 },
-      bottomLeft: { countries: 0, population: 0 },
-      topLeft: { countries: 0, population: 0 },
-      bottomRight: { countries: 0, population: 0 },
-    },
-  );
-
-  const describeQuadrant = (text, stats) => ({
-    text,
-    countries: stats.countries,
-    countryShare: stats.countries / data.length,
-    populationShare: stats.population / totalPopulation,
-  });
 
   const quadrantLabels = [
     {
-      ...describeQuadrant("Longevity and wealth", quadrantStats.topRight),
-      x: (medianX + xRange[1]) / 2,
-      y: (yRange[1] + medianY) / 2,
+      text: "1",
+      x: xRange[1] - 16,
+      y: yRange[1] + 24,
+      anchor: "end",
     },
     {
-      ...describeQuadrant("Short life and poverty", quadrantStats.bottomLeft),
-      x: (xRange[0] + medianX) / 2,
-      y: (medianY + yRange[0]) / 2,
+      text: "3",
+      x: medianX - 14,
+      y: yRange[0] - 18,
+      anchor: "end",
     },
     {
-      ...describeQuadrant("Longer lives despite low income", quadrantStats.topLeft),
-      x: (xRange[0] + medianX) / 2,
-      y: (yRange[1] + medianY) / 2,
+      text: "2",
+      x: xRange[0] + 16,
+      y: yRange[1] + 24,
+      anchor: "start",
     },
     {
-      ...describeQuadrant("Wealthier but shorter lives", quadrantStats.bottomRight),
-      x: (medianX + xRange[1]) / 2,
-      y: (medianY + yRange[0]) / 2,
+      text: "4",
+      x: xRange[1] - 16,
+      y: yRange[0] - 18,
+      anchor: "end",
     },
   ];
 
@@ -137,25 +99,67 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
       role="img"
       aria-label="Bubble plot of GDP per capita and life expectancy by country"
     >
-      <text className="chart-title" x={margin.left} y={30}>
-        <tspan x={margin.left}>La mayoría de la humanidad vive con poco ingreso</tspan>
-        <tspan x={margin.left} dy="1.1em">
-          pero cada vez más años
-        </tspan>
-      </text>
-      <text className="chart-subtitle" x={margin.left} y={72}>
-        Países de Gapminder, tamaño por población y color por continente
+      <defs>
+        <marker
+          id="axis-arrow"
+          markerWidth="8"
+          markerHeight="8"
+          refX="6"
+          refY="4"
+          orient="auto"
+          markerUnits="strokeWidth"
+        >
+          <path d="M0,0 L8,4 L0,8 Z" fill="#6a6a6a" />
+        </marker>
+      </defs>
+
+      <line
+        className="direction-arrow"
+        x1={margin.left - 54}
+        x2={margin.left - 54}
+        y1={margin.top + boundsHeight}
+        y2={margin.top + 6}
+        markerEnd="url(#axis-arrow)"
+      />
+      <text
+        className="direction-label direction-label-y"
+        x={margin.left - 76}
+        y={margin.top + boundsHeight / 2}
+        textAnchor="middle"
+        transform={`rotate(-90 ${margin.left - 76} ${margin.top + boundsHeight / 2})`}
+      >
+        Life expectancy
       </text>
 
+      <line
+        className="direction-arrow"
+        x1={margin.left}
+        x2={margin.left + boundsWidth}
+        y1={height - 58}
+        y2={height - 58}
+        markerEnd="url(#axis-arrow)"
+      />
+      <text className="direction-label direction-label-x" x={margin.left + boundsWidth / 2} y={height - 34} textAnchor="middle">
+        GDP per capita
+      </text>
+      <rect
+        className="quadrant-shade"
+        x={medianX}
+        y={margin.top}
+        width={xRange[1] - medianX}
+        height={medianY - margin.top}
+      />
+      <rect
+        className="quadrant-shade"
+        x={margin.left}
+        y={medianY}
+        width={medianX - margin.left}
+        height={yRange[0] - medianY}
+      />
+
       {quadrantLabels.map((label) => (
-        <text key={label.text} className="quadrant-label" x={label.x} y={label.y} textAnchor="middle">
-          <tspan x={label.x}>{label.text}</tspan>
-          <tspan x={label.x} dy="1.35em">
-            {label.countries} países ({percentFormat(label.countryShare)})
-          </tspan>
-          <tspan x={label.x} dy="1.35em">
-            {percentFormat(label.populationShare)} de la población
-          </tspan>
+        <text key={label.text} className="quadrant-label" x={label.x} y={label.y} textAnchor={label.anchor}>
+          {label.text}
         </text>
       ))}
 
@@ -174,10 +178,10 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
         y2={margin.top + boundsHeight}
       />
       <text className="median-label" x={margin.left + 8} y={medianY - 8}>
-        Median: {oneDecimal(medianLife)} years
+        median {oneDecimal(medianLife)} years
       </text>
       <text className="median-label" x={medianX + 8} y={margin.top + 14}>
-        Median: ${commaFormat(Math.round(medianGdp))}
+        median ${commaFormat(Math.round(medianGdp))}
       </text>
 
       {sortedData.map((d) => (
@@ -187,7 +191,7 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
           cy={yScale(d.lifeExp)}
           r={sizeScale(d.pop)}
           fill={colorScale(d.continent)}
-          opacity={0.7}
+          opacity={0.78}
           stroke="rgba(255,255,255,0.72)"
           strokeWidth={0.7}
         />
@@ -215,26 +219,15 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
         scale={xScale}
         y={margin.top + boundsHeight}
         tickFormat={(value) => commaFormat(value)}
-        label="GDP per capita (USD)"
+        labelOffset={42}
+        label=""
       />
       <AxisLeft
         scale={yScale}
         x={margin.left}
         width={boundsWidth}
         tickFormat={(value) => value}
-        label="Life Expectancy (years)"
-      />
-      <BubbleLegend
-        sizeScale={sizeScale}
-        values={[10000000, 100000000, 1000000000]}
-        x={width - margin.right - 142}
-        y={height - margin.bottom - 96}
-      />
-      <ColorLegend
-        items={continents}
-        colorScale={colorScale}
-        x={margin.left + 8}
-        y={height - 18}
+        label=""
       />
     </svg>
   );
