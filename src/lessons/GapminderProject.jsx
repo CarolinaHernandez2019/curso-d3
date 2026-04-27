@@ -5,14 +5,77 @@ import BubblePlot from "../viz/BubblePlot";
 const percentFormat = format(".0%");
 const populationFormat = format(".2s");
 const continents = [
-  { name: "Africa", color: "#6fa4bf" },
-  { name: "Americas", color: "#d49a44" },
-  { name: "Asia", color: "#7fa36a" },
-  { name: "Europe", color: "#bf746e" },
-  { name: "Oceania", color: "#9f8ac4" },
+  { key: "Africa", color: "#6fa4bf" },
+  { key: "Americas", color: "#d49a44" },
+  { key: "Asia", color: "#7fa36a" },
+  { key: "Europe", color: "#bf746e" },
+  { key: "Oceania", color: "#9f8ac4" },
 ];
 
-function getQuadrantSummary(dataset) {
+const copy = {
+  es: {
+    title: "El 45% de la población mundial vive en países con bajo ingreso y baja esperanza de vida",
+    subtitle: (continentCount, countryCount, populationLabel) =>
+      `PIB per cápita vs esperanza de vida en ${continentCount} continentes, ${countryCount} países y ${populationLabel} de habitantes. Las líneas marcan la mediana de cada variable.`,
+    size: "Tamaño",
+    sizeDescription: "población del país",
+    color: "Color",
+    colorDescription: "continente",
+    continentNames: {
+      Africa: "África",
+      Americas: "Américas",
+      Asia: "Asia",
+      Europe: "Europa",
+      Oceania: "Oceanía",
+    },
+    quadrantNote:
+      "Las líneas medianas dividen el gráfico en cuatro formas de leer la relación entre ingresos y años de esperanza de vida.",
+    quadrants: {
+      1: "Longevidad y riqueza",
+      2: "Más años, menor ingreso",
+      3: "Vida corta y pobreza",
+      4: "Más ingreso, menos años",
+    },
+    countries: "países",
+    populationShare: "de la población",
+    source: "Fuente: Gapminder (2007). PIB en dólares internacionales, PPP.",
+    method:
+      "Las medianas de esperanza de vida y PIB per cápita se calcularon ordenando los 142 países y tomando el valor central. Cada país se clasifica según si está arriba o abajo de esas medianas. El porcentaje de población se calcula sumando la población de los países dentro de cada cuadrante.",
+    populationUnit: " mil millones",
+  },
+  en: {
+    title: "45% of the world population lives in countries with low income and low life expectancy",
+    subtitle: (continentCount, countryCount, populationLabel) =>
+      `GDP per capita vs life expectancy across ${continentCount} continents, ${countryCount} countries and ${populationLabel} people. The lines mark the median of each variable.`,
+    size: "Size",
+    sizeDescription: "country population",
+    color: "Color",
+    colorDescription: "continent",
+    continentNames: {
+      Africa: "Africa",
+      Americas: "Americas",
+      Asia: "Asia",
+      Europe: "Europe",
+      Oceania: "Oceania",
+    },
+    quadrantNote:
+      "The median lines divide the chart into four ways of reading the relationship between income and years of life expectancy.",
+    quadrants: {
+      1: "Longevity and wealth",
+      2: "Longer lives, lower income",
+      3: "Short life and poverty",
+      4: "Higher income, shorter lives",
+    },
+    countries: "countries",
+    populationShare: "of the population",
+    source: "Source: Gapminder (2007). GDP in international dollars, PPP.",
+    method:
+      "The medians for life expectancy and GDP per capita were calculated by ordering the 142 countries and taking the central value. Each country is classified according to whether it is above or below those medians. The population percentage is calculated by summing the population of the countries within each quadrant.",
+    populationUnit: " billion",
+  },
+};
+
+function getQuadrantSummary(dataset, labels) {
   const medianGdp = median(dataset, (d) => d.gdpPercap);
   const medianLife = median(dataset, (d) => d.lifeExp);
   const totalPopulation = sum(dataset, (d) => d.pop);
@@ -20,22 +83,22 @@ function getQuadrantSummary(dataset) {
   const quadrants = [
     {
       id: 1,
-      label: "Longevity and wealth",
+      label: labels[1],
       test: (d) => d.gdpPercap >= medianGdp && d.lifeExp >= medianLife,
     },
     {
       id: 2,
-      label: "Longer lives, lower income",
+      label: labels[2],
       test: (d) => d.gdpPercap < medianGdp && d.lifeExp >= medianLife,
     },
     {
       id: 3,
-      label: "Short life and poverty",
+      label: labels[3],
       test: (d) => d.gdpPercap < medianGdp && d.lifeExp < medianLife,
     },
     {
       id: 4,
-      label: "Higher income, shorter lives",
+      label: labels[4],
       test: (d) => d.gdpPercap >= medianGdp && d.lifeExp < medianLife,
     },
   ];
@@ -53,21 +116,19 @@ function getQuadrantSummary(dataset) {
   });
 }
 
-export default function GapminderProject() {
-  const quadrantSummary = getQuadrantSummary(data);
+export default function GapminderProject({ lang = "es" }) {
+  const text = copy[lang] ?? copy.es;
+  const quadrantSummary = getQuadrantSummary(data, text.quadrants);
   const totalPopulation = sum(data, (d) => d.pop);
-  const totalPopulationLabel = populationFormat(totalPopulation).replace("G", " billion");
+  const totalPopulationLabel = populationFormat(totalPopulation).replace("G", text.populationUnit);
 
   return (
     <div className="lesson-content gapminder-project">
-      <h2>45% of the world population lives in countries with low income and low life expectancy</h2>
-      <p className="lesson-subtitle">
-        GDP per capita vs life expectancy across {continents.length} continents, {data.length} countries and{" "}
-        {totalPopulationLabel} people. The lines mark the median of each variable.
-      </p>
+      <h2>{text.title}</h2>
+      <p className="lesson-subtitle">{text.subtitle(continents.length, data.length, totalPopulationLabel)}</p>
 
       <div className="viz-container gapminder-viz">
-        <BubblePlot data={data} width={800} height={600} />
+        <BubblePlot data={data} width={800} height={600} lang={lang} />
       </div>
 
       <section className="encoding-summary" aria-label="Cómo leer las burbujas">
@@ -78,31 +139,28 @@ export default function GapminderProject() {
             <span />
           </span>
           <p>
-            <strong>Size</strong>
-            <span>country population</span>
+            <strong>{text.size}</strong>
+            <span>{text.sizeDescription}</span>
           </p>
         </div>
 
         <div className="encoding-item encoding-colors">
           <p>
-            <strong>Color</strong>
-            <span>continent</span>
+            <strong>{text.color}</strong>
+            <span>{text.colorDescription}</span>
           </p>
           <span className="continent-key" aria-label="Colores por continente">
             {continents.map((continent) => (
-              <span key={continent.name}>
+              <span key={continent.key}>
                 <i style={{ backgroundColor: continent.color }} />
-                {continent.name}
+                {text.continentNames[continent.key]}
               </span>
             ))}
           </span>
         </div>
       </section>
 
-      <p className="quadrant-note">
-        The median lines divide the chart into four ways of reading the relationship between income and years of life
-        expectancy.
-      </p>
+      <p className="quadrant-note">{text.quadrantNote}</p>
 
       <section className="quadrant-summary" aria-label="Resumen de cuadrantes">
         {quadrantSummary.map((quadrant) => (
@@ -111,20 +169,17 @@ export default function GapminderProject() {
             <div>
               <h3>{quadrant.label}</h3>
               <p>
-                {quadrant.countryCount} countries · {percentFormat(quadrant.populationShare)} of the population
+                {quadrant.countryCount} {text.countries} · {percentFormat(quadrant.populationShare)}{" "}
+                {text.populationShare}
               </p>
             </div>
           </article>
         ))}
       </section>
 
-      <p className="chart-source">Source: Gapminder.</p>
+      <p className="chart-source">{text.source}</p>
 
-      <p className="method-note">
-        The medians for life expectancy and GDP per capita were calculated by ordering the 142 countries and taking the
-        central value. Each country is classified according to whether it is above or below those medians. The population
-        percentage is calculated by summing the population of the countries within each quadrant.
-      </p>
+      <p className="method-note">{text.method}</p>
     </div>
   );
 }

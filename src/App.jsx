@@ -43,7 +43,7 @@ export default function App() {
   } else if (activeView === "project-2") {
     content = <EconomistProject lang={lang} />;
   } else if (activeView === "project-3") {
-    content = <GapminderProject />;
+    content = <GapminderProject lang={lang} />;
   } else {
     content = <LessonStub />;
   }

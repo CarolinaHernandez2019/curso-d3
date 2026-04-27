@@ -3,28 +3,15 @@ import AxisBottom from "./AxisBottom";
 import AxisLeft from "./AxisLeft";
 
 const margin = { top: 42, right: 50, bottom: 118, left: 104 };
-const labelCountries = new Set([
-  "Colombia",
-  "Chile",
-  "Brazil",
-  "Mexico",
-  "United States",
-  "Japan",
-  "Norway",
-  "India",
-  "China",
-  "South Africa",
-  "Nigeria",
-]);
-
 const labelOffsets = {
   China: { dx: -8, dy: -16, anchor: "end" },
   India: { dx: 12, dy: 16, anchor: "start" },
   "United States": { dx: 10, dy: -12, anchor: "start" },
+  Indonesia: { dx: 12, dy: 12, anchor: "start" },
   Japan: { dx: 10, dy: -12, anchor: "start" },
   Norway: { dx: -10, dy: -10, anchor: "end" },
   Nigeria: { dx: 12, dy: -6, anchor: "start" },
-  "South Africa": { dx: 12, dy: 14, anchor: "start" },
+  "South Africa": { dx: 12, dy: 26, anchor: "start" },
   Mexico: { dx: 10, dy: -8, anchor: "start" },
   Brazil: { dx: 10, dy: 12, anchor: "start" },
   Chile: { dx: -10, dy: -10, anchor: "end" },
@@ -35,7 +22,32 @@ const continentColors = ["#6fa4bf", "#d49a44", "#7fa36a", "#bf746e", "#9f8ac4"];
 const commaFormat = format(",");
 const oneDecimal = format(".1f");
 
-export default function BubblePlot({ data, width = 800, height = 600 }) {
+const axisCopy = {
+  es: {
+    y: "Esperanza de vida",
+    x: "PIB per cápita (PPP)",
+    median: "mediana",
+    medianGdp: "Mediana PIB per cápita",
+    medianLife: "Mediana esperanza de vida",
+    years: "años",
+    countries: {
+      "South Africa": "Sudáfrica",
+      "United States": "Estados Unidos",
+    },
+  },
+  en: {
+    y: "Life expectancy",
+    x: "GDP per capita (PPP)",
+    median: "median",
+    medianGdp: "Median GDP per capita",
+    medianLife: "Median life expectancy",
+    years: "years",
+    countries: {},
+  },
+};
+
+export default function BubblePlot({ data, width = 800, height = 600, lang = "es" }) {
+  const text = axisCopy[lang] ?? axisCopy.es;
   const boundsWidth = width - margin.left - margin.right;
   const boundsHeight = height - margin.top - margin.bottom;
   const [, maxGdp] = extent(data, (d) => d.gdpPercap);
@@ -62,6 +74,15 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
   const medianY = yScale(medianLife);
   const xRange = xScale.range();
   const yRange = yScale.range();
+  const quadrant3Countries = sortedData.filter((d) => d.gdpPercap < medianGdp && d.lifeExp < medianLife);
+  const largestAfricanCountryInQuadrant3 = quadrant3Countries.find((d) => d.continent === "Africa");
+  const mostPopulatedByQuadrant = [
+    sortedData.find((d) => d.gdpPercap >= medianGdp && d.lifeExp >= medianLife),
+    sortedData.find((d) => d.gdpPercap < medianGdp && d.lifeExp >= medianLife),
+    sortedData.find((d) => d.gdpPercap < medianGdp && d.lifeExp < medianLife),
+    largestAfricanCountryInQuadrant3,
+    sortedData.find((d) => d.country === "South Africa"),
+  ].filter(Boolean);
 
   const quadrantLabels = [
     {
@@ -128,7 +149,7 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
         textAnchor="middle"
         transform={`rotate(-90 ${margin.left - 76} ${margin.top + boundsHeight / 2})`}
       >
-        Life expectancy
+        {text.y}
       </text>
 
       <line
@@ -140,7 +161,7 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
         markerEnd="url(#axis-arrow)"
       />
       <text className="direction-label direction-label-x" x={margin.left + boundsWidth / 2} y={height - 34} textAnchor="middle">
-        GDP per capita
+        {text.x}
       </text>
       <rect
         className="quadrant-shade"
@@ -177,11 +198,11 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
         y1={margin.top}
         y2={margin.top + boundsHeight}
       />
-      <text className="median-label" x={margin.left + 8} y={medianY - 8}>
-        median {oneDecimal(medianLife)} years
+      <text className="median-label median-label-life" x={xRange[1] - 8} y={medianY - 8} textAnchor="end">
+        {text.medianLife} {oneDecimal(medianLife)} {text.years}
       </text>
-      <text className="median-label" x={medianX + 8} y={margin.top + 14}>
-        median ${commaFormat(Math.round(medianGdp))}
+      <text className="median-label median-label-gdp" x={medianX + 8} y={margin.top + 16} textAnchor="start">
+        {text.medianGdp} ${commaFormat(Math.round(medianGdp))}
       </text>
 
       {sortedData.map((d) => (
@@ -197,8 +218,7 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
         />
       ))}
 
-      {sortedData
-        .filter((d) => labelCountries.has(d.country))
+      {mostPopulatedByQuadrant
         .map((d) => {
           const offset = labelOffsets[d.country] ?? { dx: 9, dy: -9, anchor: "start" };
 
@@ -210,7 +230,7 @@ export default function BubblePlot({ data, width = 800, height = 600 }) {
               y={yScale(d.lifeExp) + offset.dy}
               textAnchor={offset.anchor}
             >
-              {d.country}
+              {text.countries[d.country] ?? d.country}
             </text>
           );
         })}
