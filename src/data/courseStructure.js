@@ -21,7 +21,12 @@ export const courseModules = [
     lessons: [],
     project: { id: "economist-project", title: "Project: Economist Bar Chart", status: "in-progress" },
   },
-  { id: 3, title: "Module 3", lessons: [], project: null, placeholder: true },
+  {
+    id: 3,
+    title: "Bubble Plot",
+    lessons: [],
+    project: { id: "gapminder-project", title: "Project: Gapminder Bubble Plot", status: "in-progress" },
+  },
   { id: 4, title: "Module 4", lessons: [], project: null, placeholder: true },
   { id: 5, title: "Module 5", lessons: [], project: null, placeholder: true },
   { id: 6, title: "Module 6", lessons: [], project: null, placeholder: true },

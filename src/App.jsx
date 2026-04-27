@@ -4,6 +4,7 @@ import Home from "./lessons/Home";
 import IntroProject from "./lessons/IntroProject";
 import LessonStub from "./lessons/LessonStub";
 import EconomistProject from "./lessons/EconomistProject";
+import GapminderProject from "./lessons/GapminderProject";
 import "./App.css";
 
 export default function App() {
@@ -41,6 +42,8 @@ export default function App() {
     content = <IntroProject lang={lang} />;
   } else if (activeView === "project-2") {
     content = <EconomistProject lang={lang} />;
+  } else if (activeView === "project-3") {
+    content = <GapminderProject />;
   } else {
     content = <LessonStub />;
   }
