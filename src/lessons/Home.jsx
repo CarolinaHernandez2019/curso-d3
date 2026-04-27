@@ -22,6 +22,7 @@ export default function Home({ lang }) {
           <li>{t("home.tip2", lang)}</li>
           <li>{t("home.tip4", lang)}</li>
         </ul>
+        <p className="home-note">{t("home.domNote", lang)}</p>
       </section>
 
       <section className="home-section folder-section">

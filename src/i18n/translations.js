@@ -41,6 +41,10 @@ export const translations = {
     es: "El conflicto histórico entre D3 viejo y React era que los dos querían controlar el DOM. La solución: D3 solo hace matemática, React hace todo el rendering.",
     en: "The historical conflict between old D3 and React was that both wanted to control the DOM. The solution: D3 only does the math, React handles all the rendering.",
   },
+  "home.domNote": {
+    es: "DOM significa Document Object Model: es la estructura que el navegador crea a partir del HTML para poder mostrar y actualizar la página.",
+    en: "DOM means Document Object Model: it is the structure the browser creates from HTML so it can display and update the page.",
+  },
   "home.structure.title": {
     es: "Estructura de carpetas del proyecto",
     en: "Project folder structure",
