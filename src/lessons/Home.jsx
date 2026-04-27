@@ -35,6 +35,7 @@ export default function Home({ lang }) {
           <p><code>pages/</code><span>{t("home.structure.pages", lang)}</span></p>
           <p><code>ui/</code><span>{t("home.structure.ui", lang)}</span></p>
         </div>
+        <p className="home-note">{t("home.shadcnNote", lang)}</p>
 
         <ul className="yan-tips-list">
           <li>{t("home.yanTip1.body", lang)}</li>

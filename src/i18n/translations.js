@@ -70,8 +70,12 @@ export const translations = {
     en: "each article or narrative piece",
   },
   "home.structure.ui": {
-    es: "componentes ShadcnUI si los usas",
+    es: "componentes ShadcnUI si se usan",
     en: "ShadcnUI components if you use them",
+  },
+  "home.shadcnNote": {
+    es: "ShadcnUI es una librería de componentes de interfaz listos para usar (botones, modales, tablas, formularios, menús desplegables) con buen diseño por defecto.",
+    en: "ShadcnUI is a library of ready-to-use interface components (buttons, modals, tables, forms, dropdown menus) with good default design.",
   },
   "home.yanTips.title": {
     es: "Tips específicos de Yan:",
