@@ -142,9 +142,9 @@ export default function GapminderProject({ lang = "es" }) {
             viewBox="0 0 110 52"
             aria-hidden="true"
           >
-            <circle cx="24" cy="28" r="22" fill="rgba(143,183,201,0.18)" stroke="#8aa3b5" strokeWidth="1" />
-            <circle cx="24" cy="38" r="12" fill="rgba(143,183,201,0.22)" stroke="#8aa3b5" strokeWidth="1" />
-            <circle cx="24" cy="46" r="4" fill="rgba(143,183,201,0.28)" stroke="#8aa3b5" strokeWidth="1" />
+            <circle cx="24" cy="28" r="22" fill="rgba(140,140,140,0.12)" stroke="#9a9a9a" strokeWidth="1" />
+            <circle cx="24" cy="38" r="12" fill="rgba(140,140,140,0.16)" stroke="#9a9a9a" strokeWidth="1" />
+            <circle cx="24" cy="46" r="4" fill="rgba(140,140,140,0.22)" stroke="#9a9a9a" strokeWidth="1" />
             <line x1="46" x2="60" y1="6" y2="6" stroke="#b5b5b5" strokeWidth="0.7" />
             <line x1="36" x2="60" y1="26" y2="26" stroke="#b5b5b5" strokeWidth="0.7" />
             <line x1="28" x2="60" y1="42" y2="42" stroke="#b5b5b5" strokeWidth="0.7" />
