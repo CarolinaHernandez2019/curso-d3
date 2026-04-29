@@ -28,6 +28,11 @@
   --transition: 0.3s ease;
 }
 
+html,
+body {
+  overscroll-behavior-y: none;
+}
+
 body {
   font-family: sans-serif;
   background-color: #fafafa;
@@ -43,6 +48,19 @@ body {
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
+}
+
+/* Extiende el fondo blanco del navbar hacia arriba.
+   Evita que el gris del body asome durante el overscroll-up
+   y haga ver el navbar como si se despegara. */
+.navbar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 200px;
+  background: var(--color-bg);
 }
 
 .nav-container {
@@ -358,7 +376,7 @@ body {
 .encoding-summary {
   max-width: 800px;
   display: grid;
-  grid-template-columns: 190px 1fr;
+  grid-template-columns: 230px 1fr;
   align-items: center;
   column-gap: 36px;
   border-top: 1px solid var(--color-border);
@@ -398,38 +416,9 @@ body {
   gap: 16px;
 }
 
-.encoding-bubbles {
-  width: 42px;
-  height: 30px;
-  position: relative;
-  display: inline-block;
+.encoding-size-svg {
+  display: block;
   flex-shrink: 0;
-}
-
-.encoding-bubbles span {
-  position: absolute;
-  bottom: 2px;
-  border-radius: 50%;
-  border: 1px solid #8aa3b5;
-  background: rgba(143, 183, 201, 0.45);
-}
-
-.encoding-bubbles span:nth-child(1) {
-  left: 0;
-  width: 12px;
-  height: 12px;
-}
-
-.encoding-bubbles span:nth-child(2) {
-  left: 13px;
-  width: 18px;
-  height: 18px;
-}
-
-.encoding-bubbles span:nth-child(3) {
-  right: 0;
-  width: 27px;
-  height: 27px;
 }
 
 .continent-key {

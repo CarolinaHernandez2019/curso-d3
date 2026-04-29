@@ -19,6 +19,7 @@ const copy = {
       `PIB per cápita vs esperanza de vida en ${continentCount} continentes, ${countryCount} países y ${populationLabel} de habitantes. Las líneas marcan la mediana de cada variable.`,
     size: "Tamaño",
     sizeDescription: "población del país",
+    sizeLegend: { small: "10M", medium: "100M", large: "1.000M" },
     color: "Color",
     colorDescription: "continente",
     continentNames: {
@@ -49,6 +50,7 @@ const copy = {
       `GDP per capita vs life expectancy across ${continentCount} continents, ${countryCount} countries and ${populationLabel} people. The lines mark the median of each variable.`,
     size: "Size",
     sizeDescription: "country population",
+    sizeLegend: { small: "10M", medium: "100M", large: "1B" },
     color: "Color",
     colorDescription: "continent",
     continentNames: {
@@ -133,11 +135,23 @@ export default function GapminderProject({ lang = "es" }) {
 
       <section className="encoding-summary" aria-label="Cómo leer las burbujas">
         <div className="encoding-item">
-          <span className="encoding-symbol encoding-bubbles" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
+          <svg
+            className="encoding-size-svg"
+            width="110"
+            height="52"
+            viewBox="0 0 110 52"
+            aria-hidden="true"
+          >
+            <circle cx="24" cy="28" r="22" fill="rgba(143,183,201,0.18)" stroke="#8aa3b5" strokeWidth="1" />
+            <circle cx="24" cy="38" r="12" fill="rgba(143,183,201,0.22)" stroke="#8aa3b5" strokeWidth="1" />
+            <circle cx="24" cy="46" r="4" fill="rgba(143,183,201,0.28)" stroke="#8aa3b5" strokeWidth="1" />
+            <line x1="46" x2="60" y1="6" y2="6" stroke="#b5b5b5" strokeWidth="0.7" />
+            <line x1="36" x2="60" y1="26" y2="26" stroke="#b5b5b5" strokeWidth="0.7" />
+            <line x1="28" x2="60" y1="42" y2="42" stroke="#b5b5b5" strokeWidth="0.7" />
+            <text x="62" y="9" fontSize="9.5" fill="#666">{text.sizeLegend.large}</text>
+            <text x="62" y="29" fontSize="9.5" fill="#666">{text.sizeLegend.medium}</text>
+            <text x="62" y="45" fontSize="9.5" fill="#666">{text.sizeLegend.small}</text>
+          </svg>
           <p>
             <strong>{text.size}</strong>
             <span>{text.sizeDescription}</span>
