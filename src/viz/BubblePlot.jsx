@@ -212,7 +212,7 @@ export default function BubblePlot({ data, width = 800, height = 600, lang = "es
           cy={yScale(d.lifeExp)}
           r={sizeScale(d.pop)}
           fill={colorScale(d.continent)}
-          opacity={0.78}
+          opacity={0.65}
           stroke="rgba(255,255,255,0.72)"
           strokeWidth={0.7}
         />
