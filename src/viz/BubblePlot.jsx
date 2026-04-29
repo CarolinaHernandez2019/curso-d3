@@ -130,7 +130,7 @@ export default function BubblePlot({ data, width = 800, height = 600, lang = "es
           orient="auto"
           markerUnits="strokeWidth"
         >
-          <path d="M0,0 L8,4 L0,8 Z" fill="#6a6a6a" />
+          <path d="M0,0 L8,4 L0,8 Z" fill="#b5b5b5" />
         </marker>
       </defs>
 

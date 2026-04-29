@@ -14,7 +14,7 @@ const continents = [
 
 const copy = {
   es: {
-    title: "El continente determina el cuadrante: 9 de cada 10 africanos viven con bajo ingreso y baja longevidad, 9 de cada 10 europeos en la situación opuesta",
+    title: "El 45% de la población mundial vive en países con bajo ingreso y baja longevidad",
     subtitle: (continentCount, countryCount, populationLabel) =>
       `PIB per cápita vs esperanza de vida en ${continentCount} continentes, ${countryCount} países y ${populationLabel} de habitantes. Las líneas marcan la mediana de cada variable.`,
     size: "Tamaño",
@@ -45,7 +45,7 @@ const copy = {
     populationUnit: " mil millones",
   },
   en: {
-    title: "The continent shapes the quadrant: 9 of 10 Africans live with low income and low life expectancy, 9 of 10 Europeans the opposite",
+    title: "45% of the world population lives in countries with low income and low life expectancy",
     subtitle: (continentCount, countryCount, populationLabel) =>
       `GDP per capita vs life expectancy across ${continentCount} continents, ${countryCount} countries and ${populationLabel} people. The lines mark the median of each variable.`,
     size: "Size",

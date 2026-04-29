@@ -302,12 +302,12 @@ body {
 }
 
 .direction-arrow {
-  stroke: #6a6a6a;
+  stroke: #b5b5b5;
   stroke-width: 0.85;
 }
 
 .direction-label {
-  fill: #5f5f5f;
+  fill: #a5a5a5;
   font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;
