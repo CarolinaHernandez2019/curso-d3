@@ -18,7 +18,7 @@ const labelOffsets = {
   Colombia: { dx: 10, dy: 12, anchor: "start" },
 };
 
-const continentColors = ["#6fa4bf", "#d49a44", "#7fa36a", "#bf746e", "#9f8ac4"];
+const continentColors = ["#7fa36a", "#d49a44", "#bf746e", "#6fa4bf", "#9f8ac4"];
 const commaFormat = format(",");
 const oneDecimal = format(".1f");
 

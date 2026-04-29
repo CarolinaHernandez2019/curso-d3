@@ -5,16 +5,16 @@ import BubblePlot from "../viz/BubblePlot";
 const percentFormat = format(".0%");
 const populationFormat = format(".2s");
 const continents = [
-  { key: "Africa", color: "#6fa4bf" },
+  { key: "Africa", color: "#7fa36a" },
   { key: "Americas", color: "#d49a44" },
-  { key: "Asia", color: "#7fa36a" },
-  { key: "Europe", color: "#bf746e" },
+  { key: "Asia", color: "#bf746e" },
+  { key: "Europe", color: "#6fa4bf" },
   { key: "Oceania", color: "#9f8ac4" },
 ];
 
 const copy = {
   es: {
-    title: "El 45% de la población mundial vive en países con bajo ingreso y baja esperanza de vida",
+    title: "El continente determina el cuadrante: 9 de cada 10 africanos viven con bajo ingreso y baja longevidad, 9 de cada 10 europeos en la situación opuesta",
     subtitle: (continentCount, countryCount, populationLabel) =>
       `PIB per cápita vs esperanza de vida en ${continentCount} continentes, ${countryCount} países y ${populationLabel} de habitantes. Las líneas marcan la mediana de cada variable.`,
     size: "Tamaño",
@@ -45,7 +45,7 @@ const copy = {
     populationUnit: " mil millones",
   },
   en: {
-    title: "45% of the world population lives in countries with low income and low life expectancy",
+    title: "The continent shapes the quadrant: 9 of 10 Africans live with low income and low life expectancy, 9 of 10 Europeans the opposite",
     subtitle: (continentCount, countryCount, populationLabel) =>
       `GDP per capita vs life expectancy across ${continentCount} continents, ${countryCount} countries and ${populationLabel} people. The lines mark the median of each variable.`,
     size: "Size",
