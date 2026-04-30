@@ -20,6 +20,7 @@ export default function Home({ lang }) {
         <ul className="tips-list">
           <li>{t("home.tip1", lang)}</li>
           <li>{t("home.tip2", lang)}</li>
+          <li>{t("home.tip3", lang)}</li>
           <li>{t("home.tip4", lang)}</li>
         </ul>
         <p className="home-note">{t("home.domNote", lang)}</p>

@@ -37,6 +37,10 @@ export const translations = {
     es: "GitHub Pages es perfecto para compartir proyectos: cada uno queda publicado, compartible y listo para recibir feedback. Es un sitio estático, es decir, el navegador hace todo el trabajo y no pagas nada sin importar cuántas personas lo visiten. Otras plataformas como Vercel tienen más sentido si necesitas un backend detrás, autenticación, APIs privadas o algo por el estilo. Para un portafolio, es demasiado.",
     en: "GitHub Pages is perfect for sharing projects: each one gets published, shareable, and ready for feedback. It is a static site, meaning the browser does all the work and you pay nothing no matter how many people visit. Other platforms like Vercel make more sense if you need a backend running behind it, authentication, private APIs, that kind of thing. Overkill for a portfolio.",
   },
+  "home.tip3": {
+    es: "Un gráfico responsive se adapta al tamaño de la pantalla o de su contenedor. En el curso, esto se logra midiendo el div padre con useDimensions y pasando su width y height al SVG para que D3 recalcule el gráfico.",
+    en: "A responsive chart adapts to the size of the screen or its container. In the course, this is done by measuring the parent div with useDimensions and passing its width and height to the SVG so D3 can recalculate the chart.",
+  },
   "home.tip4": {
     es: "El conflicto histórico entre D3 viejo y React era que los dos querían controlar el DOM. La solución: D3 solo hace matemática, React hace todo el rendering.",
     en: "The historical conflict between old D3 and React was that both wanted to control the DOM. The solution: D3 only does the math, React handles all the rendering.",
